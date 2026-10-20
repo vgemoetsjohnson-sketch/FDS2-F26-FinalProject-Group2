@@ -2,3 +2,12 @@
 # Names: Victoria Gemoets-Johnson, Elijah Gilbert, Anna Havner
 ## Team
 - Elijah (GitHub: @elgilbert-star)
+
+
+
+
+
+
+
+Team 2
+- Anna (GitHub: @annahavner-byte) owns proposal.ipynb

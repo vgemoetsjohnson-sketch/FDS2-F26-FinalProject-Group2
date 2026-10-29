@@ -9,20 +9,15 @@ Team 2
 
 - Elijah (GitHub: @elgilbert-star)
 
-it
 
 
 # Project Proposal
 
 by: Victoria Gemoets-Johnson, Elijah Gilbert, Anna Havner
 
-import pandas as pd
+Perceived Vulnerability to Disease: https://osf.io/7fjd6/files/5c84q
 
-pvd = pd.read_excel('data/pvdstudy.xlsx')
-pvd
-
-hrsn = pd.read_csv('data/hrsnstudy.csv')
-hrsn
+Hypertension and Postpartum: https://osf.io/hq7vg/files/bcgwt
 
 # Data Summary
 
@@ -30,39 +25,31 @@ We are working with two data sets, one that focuses on hypertension and postpart
 
 Each row represents on individual person. The variables we are planning to use out of the PVD data set are The variables we are planning to use out of the HRSN data set are
 
+# Question 1
+Anna - Does a mother’s pre-existing physiological or psychological burden compound the negative impacts of pregnancy-related complications on newborn health?
 
+Plan: My overall plan is to examine the Perceived Vulnerability to Disease dataset to explore how extra physiological stress has adverse effects in pregnancy-related complications. I plan to use the columns noting prenatal physiological health in the individuals (Allergies, Asthma, Endometriosis, Diabetes, Hypertension, Thyroid problems, Hormonal Problems) to make a physiological health burden index, and use the columns noting prenatal psychological health (Perceived Stress Scale, Germ Aversion Sum, Infectability sum) to make a psychological health burden index. I will look into individual effects in newborn health (APGAR score, birth weight) but I will create an overall newborn health index to use for general comparisons.. I will then look at pregnancy-related complications (Pregnancy diabetes 1Y, Thyroid gland problems 1Y, Hypertension 1Y) with newborn health outcomes and compare differences among subsets of individuals with better or worse prenatal health.
+
+Expected Outcomes: I expect to see that individuals with worse prenatal health, both physiological and psychological, have compounded adverse health effects during pregnancy on newborn health outcomes. One possible limitation is in examining psychological health, I don't have very much data on this. If I could find a similar dataset that also included anxiety, depression, etc. it could be better to examine the psychological aspect with. In making this first look, I have also discovered that a big limitation is inconsistency of data within my dataset. It is very unlikely that only one individual in this study had asthma, yet in the first plot I made, only one datapoint shows Yes to having had asthma.
+
+# Question 2
+Elijah - Which life circumstances best predict pregnant women's stress: economic status, relationship stability, or whether the pregnancy was planned?
+
+Exploratory Findings (First-Look Boxplots)
+Unplanned pregnancies exhibit noticeably higher median stress scores compared to planned pregnancies.
+Lower income tiers show elevated median stress scores relative to middle and high income groups.
+Unmarried participants display slightly higher median stress scores than married participants.
+3. Analysis Plan & Next Steps
+Multiple Regression Analysis: To determine which life circumstance is the primary independent driver of stress, we will fit a multiple linear regression combining financial status, pregnancy planning, and relationship status. This will isolate the effect of each factor while controlling for the others.
+Step Beyond FDS I: We plan to implement a train/test split (held-out data evaluation) to assess how accurately a model trained on these baseline life circumstances can predict high vs. low maternal stress levels on unseen data.
+4. Expected Outcomes
+If Hunch is Supported: Financial status / lower income will demonstrate the largest standardized effect (
+) on stress scores when holding pregnancy planning and marital status constant.
+If Hunch is Wrong: Pregnancy planning status or marital status will retain a larger significant association with stress scores than income once all variables are evaluated together in the multiple regression model.
 
 
 # Question 3
 Victoria - How does age impact the relationship between socioeconomic status and the health of an individual?
-
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-pvd_cols = ['Age','Education','Income','SES self-assessment (1very poor to 7very good)','Number of health problems during pregnancy (max 22)','Disease severity 0to7','SUM (0-40)',]
-
-pvd = pvd.rename(columns={
-    'Income (1 - below 600, 2 - 600 - 1000, 3- 1000 - 1500, 4 - 1500 - 2000, 5 - 2000 - 3000, 6 - 3000 - 4000, 7 - 4000 - 6000, 8 - over 6000 PLN)': 'Income'})
-
-hrsn_cols = ['age', 'insurance', 'count_total_need_plus_tp2', 'ed_or_hosp', 'pcp', 'pp_visit_6_wks']
-
-# correlation
-pvd_cols = pvd[pvd_cols].apply(pd.to_numeric, errors='coerce')
-pvd_corr = pvd_cols.corr()
-
-hrsn_cols = hrsn[hrsn_cols].apply(pd.to_numeric, errors='coerce')
-hrsn_corr = hrsn_cols.corr()
-
-# heat map
-fig, axes = plt.subplots(1, 2, figsize=(15, 6), gridspec_kw={'width_ratios': [7, 6]})
-for ax, corr, title in zip(axes, [pvd_corr, hrsn_corr], ['pvd (pregnancy study)', 'hrsn (postpartum study)']):
-    sns.heatmap(corr, annot=True, fmt='.2f', cmap='coolwarm', vmin=-1, vmax=1, ax=ax, cbar=False)
-    ax.set_title(title)
-fig.colorbar(axes[1].collections[0], ax=axes, label='Pearson correlation', shrink=0.8)
-fig.suptitle('Age, SES and health in both datasets', fontweight='bold')
-plt.show()
-
 
 My plan: my overall plan is to examine how age shapes the relationship between socioeconomic status and health, using both of the two datasets from above. The plan is to clean the data by keeping the columns that matter to do those calculations and observations along with dropping rows only where needed, then to combine education, income and self-rated SES into a single index for pvd and use social needs and insurance as the SES measures for hrsn. For now, heat maps will give an overview of how age, SES and health outcomes relate. Then I will use scatter plots and bar charts split by age group to show whether the SES-health link looks different for younger and older participants which I will make a score for age group to do this as well.
 

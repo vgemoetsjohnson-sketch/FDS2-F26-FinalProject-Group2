@@ -64,9 +64,7 @@ fig.suptitle('Age, SES and health in both datasets', fontweight='bold')
 plt.show()
 
 
-My plan: my overall plan is to examine how age shapes the relationship between socioeconomic status and health, using both of the two datasets from above. The plan is to clean the data by keeping the columns that matter to do those calculations and observations along with dropping rows only where needed, then to combine education, income and self-rated SES into a single index for pvd and use social needs and insurance as the SES measures for hrsn.
-
-For now, heat maps will give an overview of how age, SES and health outcomes relate. Then I will use scatter plots and bar charts split by age group to show whether the SES-health link looks different for younger and older participants which I will make a score for age group to do this as well.
+My plan: my overall plan is to examine how age shapes the relationship between socioeconomic status and health, using both of the two datasets from above. The plan is to clean the data by keeping the columns that matter to do those calculations and observations along with dropping rows only where needed, then to combine education, income and self-rated SES into a single index for pvd and use social needs and insurance as the SES measures for hrsn. For now, heat maps will give an overview of how age, SES and health outcomes relate. Then I will use scatter plots and bar charts split by age group to show whether the SES-health link looks different for younger and older participants which I will make a score for age group to do this as well.
 
 Expected outcomes: I expect lower SES to be associated with worse health and more health-care strain in both datasets, and I hypothesize that the association will differ by age, mainly the older you are the worse SES status will impat your age. Because the samples are kinda small I expect some results to be suggestive rather than very clear of this prediction.
 

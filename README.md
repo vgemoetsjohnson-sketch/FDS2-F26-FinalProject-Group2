@@ -55,3 +55,17 @@ My plan: my overall plan is to examine how age shapes the relationship between s
 
 Expected outcomes: I expect lower SES to be associated with worse health and more health-care strain in both datasets, and I hypothesize that the association will differ by age, mainly the older you are the worse SES status will impat your age. Because the samples are kinda small I expect some results to be suggestive rather than very clear of this prediction.
 
+
+## Checkpoint 2
+
+# Question 1
+
+# Question 2
+
+# Question 3
+My Interpretations
+
+These are plots that separately show the relations between age socioeconomic status and healthin order to see of there is any correlation especially after making the scores. In the PVD dataset, on the left, the points are pretty well distributed across the plot, suggesting that there is no clear linear relationship between SES and health and participants with both higher and lower SES scores experience a range of health outcomes no matter the age. In the HRSN dataset, the relationship between SES and postpartum health is also not clear and age does not appear to show a consistent pattern across these outcomes either, which is kinda concerning for my question.
+
+That being said, while there is no obvious correlation between the three factors, I would need to conduct statistical testing to determine whether these relationships are significant and possibly use a regression analysis with an age-by-SES interaction to investigate this further and see if there might be a small relationship between them.
+
